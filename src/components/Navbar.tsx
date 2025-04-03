@@ -3,19 +3,25 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface NavbarProps {
-  logo?: string;
-  links?: Array<{ label: string; href: string }>;
+  onAboutClick: () => void;
+  onServicesClick: () => void;
+  onGalleryClick: () => void;
+  onContactClick: () => void;
 }
 
 const Navbar = ({
-  logo = "Dental Care",
-  links = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Contact", href: "#contact" },
-  ],
+  onAboutClick,
+  onContactClick,
+  onGalleryClick,
+  onServicesClick,
 }: NavbarProps) => {
+  const links = [
+    { label: "Sobre", onClick: onAboutClick },
+    { label: "Serviços", onClick: onServicesClick },
+    { label: "Gallery", onClick: onGalleryClick },
+    { label: "Contact", onClick: onContactClick },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,27 +51,33 @@ const Navbar = ({
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-mainColor ${
         scrolled ? "shadow-md py-2" : "py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold text-primary">{logo}</div>
+        <div className="text-xl font-bold text-lightMainColor">
+          TBEngenharia
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
           {links.map((link) => (
             <button
               key={link.label}
-              onClick={() => scrollToSection(link.href)}
-              className="text-gray-700 hover:text-primary font-medium transition-colors"
+              onClick={link.onClick}
+              className="text-lightMainColor hover:text-mediumMainColor font-medium transition-colors"
             >
               {link.label}
             </button>
           ))}
-          <Button onClick={() => scrollToSection("#contact")} className="ml-4">
-            Book Appointment
+          <Button
+            variant="outline"
+            onClick={() => scrollToSection("#contact")}
+            className="ml-4"
+          >
+            Agende uma consulta
           </Button>
         </div>
 
@@ -89,7 +101,7 @@ const Navbar = ({
             {links.map((link) => (
               <button
                 key={link.label}
-                onClick={() => scrollToSection(link.href)}
+                onClick={link.onClick}
                 className="text-gray-700 hover:text-primary font-medium py-2 transition-colors text-left"
               >
                 {link.label}

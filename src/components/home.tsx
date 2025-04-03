@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import ServiceCard from "./ServiceCard";
 import TestimonialCarousel from "./TestimonialCarousel";
 import ContactForm from "./ContactForm";
+import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 
 const Home = () => {
   // Refs for scroll functionality
@@ -22,21 +23,21 @@ const Home = () => {
   const services = [
     {
       id: 1,
-      icon: "tooth",
+      icon: <Cog6ToothIcon className="w-10 h-10" />,
       title: "General Dentistry",
       description:
         "Comprehensive dental care including cleanings, fillings, and preventative treatments to maintain your oral health.",
     },
     {
       id: 2,
-      icon: "smile",
+      icon: <Cog6ToothIcon className="w-10 h-10" />,
       title: "Cosmetic Dentistry",
       description:
         "Transform your smile with our cosmetic procedures including whitening, veneers, and smile makeovers.",
     },
     {
       id: 3,
-      icon: "zap",
+      icon: <Cog6ToothIcon className="w-10 h-10" />,
       title: "Emergency Care",
       description:
         "Immediate dental care for unexpected issues, pain relief, and urgent dental problems.",
@@ -102,28 +103,24 @@ const Home = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-50 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+
+      <section className="relative h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="bg-[url(src/images/background_image.jpg)] bg-no-repeat bg-cover w-full h-full blur-sm absolute"></div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
           <motion.div
-            className="lg:w-1/2"
+            className="lg:w-1/2 bg-white px-6 py-10 rounded-lg shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Your Smile, Our Passion
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-mainColor mb-6">
+              Gestão Profissional de Obras
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Welcome to Bright Smile Dental Clinic, where we combine expertise
-              with compassionate care to give you the healthy, beautiful smile
-              you deserve.
+            <p className="text-xl text-mainColor mb-8">
+              Transformamos projetos em realidade com inovação, precisão e
+              compromisso. Na TB Engenharia, construímos o futuro com engenharia
+              de qualidade e soluções inteligentes para cada desafio.
             </p>
-            <button
-              onClick={() => scrollToSection(contactRef)}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition duration-300"
-            >
-              Book an Appointment
-            </button>
           </motion.div>
           <motion.div
             className="lg:w-1/2 flex justify-center"
@@ -132,16 +129,19 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=800&q=80"
-              alt="Dr. Smith - Dentist"
-              className="rounded-full w-64 h-64 sm:w-80 sm:h-80 object-cover border-4 border-white shadow-xl"
+              src="src/images/papeis_engenharia.jpg"
+              alt="papeis_engenharia"
+              className="rounded-full w-64 h-64 sm:w-[23rem] sm:h-[23rem] object-cover border-4 border-white shadow-xl"
             />
           </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section
+        ref={aboutRef}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-lightMainColor"
+      >
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -150,10 +150,10 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              About Dr. Smith
+            <h2 className="text-3xl sm:text-4xl font-bold text-mainColor mb-4">
+              Sobre Tatiane Beilfuss
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
           </motion.div>
 
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -165,8 +165,8 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=80"
-                alt="Dr. Smith in the clinic"
+                src="src/images/tatiane_beilfuss.png"
+                alt="Tatiane beilfuss"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
             </motion.div>
@@ -177,37 +177,41 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                Dr. Jennifer Smith, DDS
+              <h3 className="text-2xl font-semibold text-mainColor mb-4">
+                Tatiane Beilfuss
               </h3>
-              <p className="text-gray-600 mb-6">
-                With over 15 years of experience in dentistry, Dr. Smith has
-                dedicated her career to providing exceptional dental care with a
-                gentle touch. She graduated with honors from the University of
-                California School of Dentistry and continues to stay at the
-                forefront of dental advancements through ongoing education.
+              <p className="text-mainColor mb-6">
+                Sou engenheira há 10 anos e, ao longo desse tempo, aprendi
+                algumas lições valiosas no atendimento aos clientes.
               </p>
-              <p className="text-gray-600 mb-6">
-                Dr. Smith believes in a patient-centered approach, taking the
-                time to listen to your concerns and creating personalized
-                treatment plans that address your unique needs. Her commitment
-                to excellence and compassionate care has earned her the trust of
-                patients of all ages.
+              <p className="text-mainColor mb-6">
+                O projeto precisa fazer sentido para você, não para mim. Posso
+                não ser fã de um pé-direito duplo na sala, mas se esse é o seu
+                sonho, ele se tornará realidade!
+              </p>
+              <p className="text-mainColor mb-6">
+                Jamais discorde de um costume familiar. Se você quer um freezer
+                na despensa, eu garanto que haverá um espaço perfeito para ele!
+              </p>
+              <p className="text-mainColor mb-6">
+                Meu compromisso é ouvir você. Aquilo que pode parecer impossível
+                na sua cabeça, para mim pode ser simples e viável. Estou aqui
+                para tornar sua jornada mais leve e tranquila!
               </p>
               <div className="flex flex-wrap gap-4">
-                <div className="bg-blue-50 px-4 py-2 rounded-md">
-                  <span className="font-medium text-blue-700">
-                    DDS, University of California
+                <div className="bg-mediumMainColor px-4 py-2 rounded-md">
+                  <span className="font-medium text-colorMain">
+                    Bacharelado Engenharia Civil
                   </span>
                 </div>
-                <div className="bg-blue-50 px-4 py-2 rounded-md">
-                  <span className="font-medium text-blue-700">
-                    American Dental Association
+                <div className="bg-mediumMainColor px-4 py-2 rounded-md">
+                  <span className="font-medium text-colorMain">
+                    MBA Gestao de Projeto
                   </span>
                 </div>
-                <div className="bg-blue-50 px-4 py-2 rounded-md">
-                  <span className="font-medium text-blue-700">
-                    Certified in Cosmetic Dentistry
+                <div className="bg-mediumMainColor px-4 py-2 rounded-md">
+                  <span className="font-medium text-colorMain">
+                    CEO TBEngenharia
                   </span>
                 </div>
               </div>
@@ -219,7 +223,7 @@ const Home = () => {
       {/* Services Section */}
       <section
         ref={servicesRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-lightMainColor2"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -229,11 +233,11 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Our Services
+            <h2 className="text-3xl sm:text-4xl font-bold text-mainColor mb-4">
+              Nossos serviços
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
+            <p className="text-xl text-mainColor max-w-3xl mx-auto">
               We offer a comprehensive range of dental services to meet all your
               oral health needs.
             </p>
@@ -272,7 +276,7 @@ const Home = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Gallery
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Take a look at our modern facilities and see what our patients
               have to say.
@@ -330,7 +334,7 @@ const Home = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Contact Us
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Schedule an appointment or reach out with any questions you may
               have.
@@ -478,7 +482,7 @@ const Home = () => {
                     onClick={() => scrollToSection(aboutRef)}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    About
+                    Sobre
                   </button>
                 </li>
                 <li>
@@ -486,7 +490,7 @@ const Home = () => {
                     onClick={() => scrollToSection(servicesRef)}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Services
+                    Serviços
                   </button>
                 </li>
                 <li>

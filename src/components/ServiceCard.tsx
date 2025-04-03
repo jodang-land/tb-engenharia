@@ -15,32 +15,27 @@ interface ServiceCardProps {
   className?: string;
 }
 
-const ServiceCard = (
-  { icon, title, description, className }: ServiceCardProps = {
-    icon: (
-      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-        🦷
-      </div>
-    ),
-    title: "Dental Service",
-    description:
-      "Professional dental care service provided by our experienced team of dentists.",
-    className: "",
-  }
-) => {
+const ServiceCard = ({
+  icon,
+  title,
+  description,
+  className,
+}: ServiceCardProps) => {
   return (
     <Card
       className={cn(
-        "w-full max-w-[350px] h-[300px] transition-all duration-300 hover:shadow-lg bg-white",
+        "w-full max-w-[350px] h-[300px] transition-all duration-300 hover:shadow-lg bg-mediumMainColor border-none",
         className
       )}
     >
       <CardHeader className="flex flex-col items-center text-center pb-2">
-        <div className="mb-4">{icon}</div>
-        <CardTitle className="text-xl font-bold">{title}</CardTitle>
+        <div className="p-6 text-mainColor">{icon}</div>
+        <CardTitle className="text-xl font-bold text-mainColor">
+          {title}
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-center text-base">
+        <CardDescription className="text-center text-base text-mainColor">
           {description}
         </CardDescription>
       </CardContent>

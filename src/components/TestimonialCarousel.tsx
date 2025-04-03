@@ -29,7 +29,11 @@ const TestimonialCarousel = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-white p-4">
-      <Carousel className="w-full" onSelect={(index) => setCurrentIndex(index)}>
+      <Carousel
+        className="w-full"
+        onChange={() => console.log("a")}
+        onSelect={(all) => console.log(all)}
+      >
         <CarouselContent>
           {testimonials.map((testimonial) => (
             <CarouselItem key={testimonial.id}>
