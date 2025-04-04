@@ -51,15 +51,13 @@ const Navbar = ({
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-mainColor ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-backgroundColorStrong ${
         scrolled ? "shadow-md py-2" : "py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold text-lightMainColor">
-          TBEngenharia
-        </div>
+        <div className="text-xl font-bold text-mainColor">EngenhariaCEO</div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
@@ -67,7 +65,7 @@ const Navbar = ({
             <button
               key={link.label}
               onClick={link.onClick}
-              className="text-lightMainColor hover:text-mediumMainColor font-medium transition-colors"
+              className="text-mainColor hover:text-backgroundColorStrong font-medium transition-colors"
             >
               {link.label}
             </button>

@@ -24,7 +24,7 @@ const ServiceCard = ({
   return (
     <Card
       className={cn(
-        "w-full max-w-[350px] h-[300px] transition-all duration-300 hover:shadow-lg bg-mediumMainColor border-none",
+        "w-full max-w-[350px] h-[300px] transition-all duration-300 hover:shadow-lg bg-backgroundColorStrong border-none",
         className
       )}
     >

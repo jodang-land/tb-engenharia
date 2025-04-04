@@ -42,6 +42,13 @@ const Home = () => {
       description:
         "Immediate dental care for unexpected issues, pain relief, and urgent dental problems.",
     },
+    {
+      id: 4,
+      icon: <Cog6ToothIcon className="w-10 h-10" />,
+      title: "Emergency Care",
+      description:
+        "Immediate dental care for unexpected issues, pain relief, and urgent dental problems.",
+    },
   ];
 
   // Sample gallery images
@@ -108,7 +115,7 @@ const Home = () => {
         <div className="bg-[url(src/images/background_image.jpg)] bg-no-repeat bg-cover w-full h-full blur-sm absolute"></div>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
           <motion.div
-            className="lg:w-1/2 bg-white px-6 py-10 rounded-lg shadow-lg"
+            className="lg:w-1/2 bg-backgroundColorMedium px-6 py-10 rounded-lg shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -118,21 +125,9 @@ const Home = () => {
             </h1>
             <p className="text-xl text-mainColor mb-8">
               Transformamos projetos em realidade com inovação, precisão e
-              compromisso. Na TB Engenharia, construímos o futuro com engenharia
+              compromisso. Na EngenhariaCEO, construímos o futuro com engenharia
               de qualidade e soluções inteligentes para cada desafio.
             </p>
-          </motion.div>
-          <motion.div
-            className="lg:w-1/2 flex justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <img
-              src="src/images/papeis_engenharia.jpg"
-              alt="papeis_engenharia"
-              className="rounded-full w-64 h-64 sm:w-[23rem] sm:h-[23rem] object-cover border-4 border-white shadow-xl"
-            />
           </motion.div>
         </div>
       </section>
@@ -140,7 +135,7 @@ const Home = () => {
       {/* About Section */}
       <section
         ref={aboutRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-lightMainColor"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-backgroundColorLight"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -199,19 +194,19 @@ const Home = () => {
                 para tornar sua jornada mais leve e tranquila!
               </p>
               <div className="flex flex-wrap gap-4">
-                <div className="bg-mediumMainColor px-4 py-2 rounded-md">
-                  <span className="font-medium text-colorMain">
+                <div className="bg-backgroundColorStrong px-4 py-2 rounded-md">
+                  <span className="font-medium text-mainColor">
                     Bacharelado Engenharia Civil
                   </span>
                 </div>
-                <div className="bg-mediumMainColor px-4 py-2 rounded-md">
-                  <span className="font-medium text-colorMain">
+                <div className="bg-backgroundColorStrong px-4 py-2 rounded-md">
+                  <span className="font-medium text-mainColor">
                     MBA Gestao de Projeto
                   </span>
                 </div>
-                <div className="bg-mediumMainColor px-4 py-2 rounded-md">
-                  <span className="font-medium text-colorMain">
-                    CEO TBEngenharia
+                <div className="bg-backgroundColorStrong px-4 py-2 rounded-md">
+                  <span className="font-medium text-mainColor">
+                    CEO EngenhariaCEO
                   </span>
                 </div>
               </div>
@@ -223,7 +218,7 @@ const Home = () => {
       {/* Services Section */}
       <section
         ref={servicesRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-lightMainColor2"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-backgroundColorMedium"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -243,7 +238,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -252,11 +247,13 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                />
+                <div className={`pt-${index * 2}`}>
+                  <ServiceCard
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
+                  />
+                </div>
               </motion.div>
             ))}
           </div>
@@ -264,7 +261,10 @@ const Home = () => {
       </section>
 
       {/* Gallery Section */}
-      <section ref={galleryRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section
+        ref={galleryRef}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-backgroundColorLight"
+      >
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -321,7 +321,7 @@ const Home = () => {
       {/* Contact Section */}
       <section
         ref={contactRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-backgroundColorMedium"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
