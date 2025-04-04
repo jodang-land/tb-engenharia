@@ -4,7 +4,12 @@ import Navbar from "./Navbar";
 import ServiceCard from "./ServiceCard";
 import TestimonialCarousel from "./TestimonialCarousel";
 import ContactForm from "./ContactForm";
-import { Cog6ToothIcon } from "@heroicons/react/24/outline";
+import {
+  UserGroupIcon,
+  TrophyIcon,
+  Square3Stack3DIcon,
+  CurrencyDollarIcon,
+} from "@heroicons/react/24/outline";
 
 const Home = () => {
   // Refs for scroll functionality
@@ -20,34 +25,34 @@ const Home = () => {
   };
 
   // Sample services data
-  const services = [
+  const pilares = [
     {
       id: 1,
-      icon: <Cog6ToothIcon className="w-10 h-10" />,
-      title: "General Dentistry",
+      icon: <TrophyIcon className="w-10 h-10" />,
+      title: "Mentalidade",
       description:
-        "Comprehensive dental care including cleanings, fillings, and preventative treatments to maintain your oral health.",
+        "Construa a confiança e a postura de uma verdadeira empresária.",
     },
     {
       id: 2,
-      icon: <Cog6ToothIcon className="w-10 h-10" />,
-      title: "Cosmetic Dentistry",
+      icon: <Square3Stack3DIcon className="w-10 h-10" />,
+      title: "Processos",
       description:
-        "Transform your smile with our cosmetic procedures including whitening, veneers, and smile makeovers.",
+        "Domine a gestão e organize sua rotina para escalar sem sobrecarga.",
     },
     {
       id: 3,
-      icon: <Cog6ToothIcon className="w-10 h-10" />,
-      title: "Emergency Care",
+      icon: <UserGroupIcon className="w-10 h-10" />,
+      title: "Posicionamento",
       description:
-        "Immediate dental care for unexpected issues, pain relief, and urgent dental problems.",
+        "Torne-se uma referência no digital e atraia clientes ideais.",
     },
     {
       id: 4,
-      icon: <Cog6ToothIcon className="w-10 h-10" />,
-      title: "Emergency Care",
+      icon: <CurrencyDollarIcon className="w-10 h-10" />,
+      title: "Vendas",
       description:
-        "Immediate dental care for unexpected issues, pain relief, and urgent dental problems.",
+        "Aprenda a prosperar, negociar e fechar contratos recorrentes.",
     },
   ];
 
@@ -55,22 +60,22 @@ const Home = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
       alt: "Modern dental clinic",
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
       alt: "Dental equipment",
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
       alt: "Dentist office",
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=80",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
       alt: "Dental procedure",
     },
   ];
@@ -229,17 +234,17 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-mainColor mb-4">
-              Nossos serviços
+              Nossos pilares
             </h2>
             <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
             <p className="text-xl text-mainColor max-w-3xl mx-auto">
-              We offer a comprehensive range of dental services to meet all your
-              oral health needs.
+              Os quatro pilares da EngenhariaCEO são fundamentais para o sucesso
+              e crescimento sustentável de qualquer projeto.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
+            {pilares.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -247,7 +252,8 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className={`pt-${index * 2}`}>
+                <div className="hidden lg:pt-24 lg:pt-48 lg:pt-72"></div>
+                <div className={`lg:pt-${index * 24} sm:pt-0`}>
                   <ServiceCard
                     icon={service.icon}
                     title={service.title}
@@ -273,13 +279,14 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Our Gallery
+            <h2 className="text-3xl sm:text-4xl font-bold text-mainColor mb-4">
+              Nossa galeria
             </h2>
             <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Take a look at our modern facilities and see what our patients
-              have to say.
+            <p className="text-xl text-mainColor max-w-3xl mx-auto">
+              Explore nossa galeria de projetos e veja como transformamos sonhos
+              em realidade. Cada imagem conta uma história de dedicação,
+              inovação e excelência na engenharia.
             </p>
           </motion.div>
 
@@ -490,7 +497,7 @@ const Home = () => {
                     onClick={() => scrollToSection(servicesRef)}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Serviços
+                    Pilares
                   </button>
                 </li>
                 <li>
@@ -498,7 +505,7 @@ const Home = () => {
                     onClick={() => scrollToSection(galleryRef)}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Gallery
+                    Galeria
                   </button>
                 </li>
                 <li>

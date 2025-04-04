@@ -17,8 +17,8 @@ const Navbar = ({
 }: NavbarProps) => {
   const links = [
     { label: "Sobre", onClick: onAboutClick },
-    { label: "Serviços", onClick: onServicesClick },
-    { label: "Gallery", onClick: onGalleryClick },
+    { label: "Pilares", onClick: onServicesClick },
+    { label: "Galeria", onClick: onGalleryClick },
     { label: "Contact", onClick: onContactClick },
   ];
 
@@ -65,7 +65,7 @@ const Navbar = ({
             <button
               key={link.label}
               onClick={link.onClick}
-              className="text-mainColor hover:text-backgroundColorStrong font-medium transition-colors"
+              className="text-mainColor hover:text-mainColorLight font-medium transition-colors"
             >
               {link.label}
             </button>
