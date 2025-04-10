@@ -19,7 +19,7 @@ const Navbar = ({
     { label: "Sobre", onClick: onAboutClick },
     { label: "Pilares", onClick: onServicesClick },
     { label: "Galeria", onClick: onGalleryClick },
-    { label: "Contact", onClick: onContactClick },
+    { label: "Contato", onClick: onContactClick },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +73,7 @@ const Navbar = ({
           <Button
             variant="outline"
             onClick={() => scrollToSection("#contact")}
-            className="ml-4"
+            className="ml-4 bg-mainColor border-mainColor text-white hover:bg-mainColorLight hover:text-white focus:bg-mainColorLight focus:text-white transition-colors"
           >
             Agende uma consulta
           </Button>
@@ -87,29 +87,33 @@ const Navbar = ({
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? (
+              <X className="h-6 w-6 text-mainColor hover:bg-none focus:bg-none hover:text-none" />
+            ) : (
+              <Menu className="h-6 w-6 text-mainColor hover:bg-none focus:bg-none hover:text-none" />
+            )}
           </Button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-backgroundColorStrong shadow-lg">
           <div className="flex flex-col space-y-4 py-4 px-8">
             {links.map((link) => (
               <button
                 key={link.label}
                 onClick={link.onClick}
-                className="text-gray-700 hover:text-primary font-medium py-2 transition-colors text-left"
+                className="text-mainColor font-medium py-2 transition-colors text-left"
               >
                 {link.label}
               </button>
             ))}
             <Button
               onClick={() => scrollToSection("#contact")}
-              className="mt-2"
+              className="mt-2 bg-mainColor text-white"
             >
-              Book Appointment
+              Agende uma consulta
             </Button>
           </div>
         </div>

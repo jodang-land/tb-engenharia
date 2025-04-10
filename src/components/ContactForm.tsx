@@ -53,29 +53,31 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 bg-white rounded-xl shadow-md">
+    <div className="w-full max-w-md mx-auto p-6 bg-backgroundColorLight rounded-xl shadow-md">
       {isSubmitted ? (
         <div className="text-center py-8">
-          <h3 className="text-2xl font-bold text-primary mb-2">Thank You!</h3>
-          <p className="text-gray-600 mb-4">
-            Your appointment request has been received. We'll contact you
-            shortly to confirm your appointment.
+          <h3 className="text-2xl font-bold text-mainColor mb-2">Thank You!</h3>
+          <p className="text-mainColorLight mb-4">
+            Seu agendamento foi enviado com sucesso. Nossa equipe entrará em
+            contato com você em breve para confirmar os detalhes.
           </p>
           <Button onClick={() => setIsSubmitted(false)}>
-            Submit Another Request
+            Solicitar Novo Agendamento
           </Button>
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <h2 className="text-2xl font-bold text-center text-primary mb-6">
-            Request an Appointment
+          <h2 className="text-2xl font-bold text-center text-mainColor mb-6">
+            Solicitar Agendamento
           </h2>
 
           <div className="space-y-2">
-            <Label htmlFor="name">Full Name</Label>
+            <Label className="text-mainColorLight" htmlFor="name">
+              Nome completo
+            </Label>
             <Input
               id="name"
-              placeholder="John Doe"
+              placeholder="Nome completo"
               {...register("name")}
               className={errors.name ? "border-red-500" : ""}
             />
@@ -85,11 +87,13 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label className="text-mainColorLight" htmlFor="email">
+              E-mail
+            </Label>
             <Input
               id="email"
               type="email"
-              placeholder="john@example.com"
+              placeholder="E-mail"
               {...register("email")}
               className={errors.email ? "border-red-500" : ""}
             />
@@ -101,10 +105,13 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label className="text-mainColorLight" htmlFor="phone">
+              Número de telefone
+            </Label>
             <Input
               id="phone"
-              placeholder="(123) 456-7890"
+              type="tel"
+              placeholder="(99) 9 9999-9999"
               {...register("phone")}
               className={errors.phone ? "border-red-500" : ""}
             />
@@ -116,7 +123,9 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="date">Preferred Date</Label>
+            <Label className="text-mainColorLight" htmlFor="date">
+              Data de preferência
+            </Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -130,7 +139,7 @@ const ContactForm = () => {
                   {selectedDate ? (
                     format(selectedDate, "PPP")
                   ) : (
-                    <span>Select a date</span>
+                    <span>Selecione a data</span>
                   )}
                 </Button>
               </PopoverTrigger>
@@ -147,10 +156,12 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
+            <Label className="text-mainColorLight" htmlFor="message">
+              Mensagem
+            </Label>
             <Textarea
               id="message"
-              placeholder="Please describe your dental needs or any questions you have..."
+              placeholder="Escreva sua mensagem aqui..."
               rows={4}
               {...register("message")}
               className={errors.message ? "border-red-500" : ""}
@@ -162,8 +173,11 @@ const ContactForm = () => {
             )}
           </div>
 
-          <Button type="submit" className="w-full">
-            Submit Request
+          <Button
+            type="submit"
+            className="w-full bg-mainColor hover:bg-mainColorLight"
+          >
+            Enviar
           </Button>
         </form>
       )}

@@ -13,6 +13,7 @@ import {
 
 const Home = () => {
   // Refs for scroll functionality
+  const isMobile = window.innerWidth <= 768;
   const aboutRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -60,23 +61,23 @@ const Home = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
-      alt: "Modern dental clinic",
+      src: "src/images/casa_1.jpg",
+      alt: "Projeto de casa moderna",
     },
     {
       id: 2,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
-      alt: "Dental equipment",
+      src: "src/images/casa_2.png",
+      alt: "Projeto e execução de casa",
     },
     {
       id: 3,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
-      alt: "Dentist office",
+      src: "src/images/refeitorio.jpg",
+      alt: "Refeitório moderno",
     },
     {
       id: 4,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiV-QXfJm9m13bJ2iYlOg_OyzRBnwDY6tyDg&s",
-      alt: "Dental procedure",
+      src: "src/images/la_no_ary.jpg",
+      alt: "Projeto de mercado moderno",
     },
   ];
 
@@ -84,24 +85,26 @@ const Home = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+      name: "Cliente 1",
+      avatar:
+        "https://api.dicebear.com/7.x/avataaars/svg?seed=white man happy teeth",
       rating: 5,
-      text: "Dr. Smith is amazing! My entire family has been going to this practice for years. The staff is friendly and the care is top-notch.",
+      text: "Tatiane é uma profissional incrível! Ela transformou meu sonho em realidade com seu conhecimento e dedicação.",
     },
     {
       id: 2,
-      name: "Michael Chen",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
+      name: "Cliente 2",
+      avatar:
+        "https://api.dicebear.com/7.x/avataaars/svg?seed=white woman happy teeth",
       rating: 5,
-      text: "I used to be terrified of dental visits, but this practice has completely changed my experience. Gentle, professional, and thorough!",
+      text: "A equipe da EngenhariaCEO é excepcional! Eles cuidaram de cada detalhe do meu projeto e o resultado foi incrível.",
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=emily",
+      name: "Cliente 3",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=woman happy",
       rating: 4,
-      text: "The office is modern and clean, and the entire team makes you feel comfortable. I highly recommend their cosmetic services.",
+      text: "Tatiane é uma profissional dedicada e atenta aos detalhes. Ela fez um trabalho maravilhoso na minha casa.",
     },
   ];
 
@@ -172,7 +175,7 @@ const Home = () => {
             </motion.div>
             <motion.div
               className="lg:w-1/2"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: isMobile ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
@@ -317,8 +320,8 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              What Our Patients Say
+            <h3 className="text-2xl font-bold text-mainColor mb-8 text-center">
+              O que nossos clientes dizem
             </h3>
             <TestimonialCarousel testimonials={testimonials} />
           </motion.div>
@@ -338,13 +341,13 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Contact Us
+            <h2 className="text-3xl sm:text-4xl font-bold text-mainColor mb-4">
+              Entre em contato
             </h2>
             <div className="w-20 h-1 bg-mainColor mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Schedule an appointment or reach out with any questions you may
-              have.
+            <p className="text-xl text-mainColor max-w-3xl mx-auto">
+              Marque uma consulta e descubra como podemos ajudar a transformar
+              seu projeto em realidade.
             </p>
           </motion.div>
 
@@ -356,9 +359,9 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                  Get in Touch
+              <div className="bg-backgroundColorStrong p-8 rounded-lg shadow-lg">
+                <h3 className="text-2xl font-semibold text-mainColor mb-6">
+                  Entre em contato conosco
                 </h3>
                 <ContactForm />
               </div>
@@ -366,48 +369,54 @@ const Home = () => {
 
             <motion.div
               className="lg:w-1/2"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: isMobile ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white p-8 rounded-lg shadow-lg h-full">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                  Office Information
+              <div className="bg-backgroundColorStrong p-8 rounded-lg shadow-lg h-full">
+                <h3 className="text-2xl font-semibold text-mainColor mb-6">
+                  Informações de contato
                 </h3>
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-medium text-gray-900 mb-2">
-                      Address
+                    <h4 className="text-lg font-medium text-mainColor mb-2">
+                      Endereço
                     </h4>
-                    <p className="text-gray-600">
-                      123 Dental Way, Suite 100
+                    <p className="text-mainColorLight">
+                      Rua dos Engenheiros, 123
                       <br />
-                      San Francisco, CA 94103
+                      Centro, <br />
+                      <br />
+                      Panambi RS
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-medium text-gray-900 mb-2">
-                      Hours
+                    <h4 className="text-lg font-medium text-mainColor mb-2">
+                      Horário de funcionamento
                     </h4>
-                    <div className="grid grid-cols-2 gap-2 text-gray-600">
-                      <span>Monday - Friday:</span>
-                      <span>8:00 AM - 6:00 PM</span>
-                      <span>Saturday:</span>
-                      <span>9:00 AM - 2:00 PM</span>
-                      <span>Sunday:</span>
-                      <span>Closed</span>
+                    <div className="grid grid-cols-2 gap-2 text-mainColorLight">
+                      <span>Segunda - Sexta:</span>
+                      <span>8:00 - 18:00</span>
+                      <span>Sábados:</span>
+                      <span>9:00 - 14:00</span>
+                      <span>Domingos:</span>
+                      <span>Fechados</span>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-medium text-gray-900 mb-2">
-                      Contact
+                    <h4 className="text-lg font-medium text-mainColor mb-2">
+                      Contato
                     </h4>
-                    <p className="text-gray-600 mb-1">Phone: (555) 123-4567</p>
-                    <p className="text-gray-600">Email: info@brightsmile.com</p>
+                    <p className="text-mainColorLight mb-1">
+                      Phone: (55) 9 9999-9999
+                    </p>
+                    <p className="text-mainColorLight">
+                      Email: tatiane@gmail.com
+                    </p>
                   </div>
                 </div>
               </div>
@@ -417,20 +426,18 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-mainColorLight text-backgroundColorStrong py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">
-                Bright Smile Dental
-              </h3>
-              <p className="text-gray-400 mb-4">
-                Providing quality dental care with a gentle touch.
+              <h3 className="text-xl font-semibold mb-4">EngenhariaCEO</h3>
+              <p className="text-backgroundColorLight mb-4">
+                Transformando sonhos em realidade com inovação e precisão.
               </p>
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                 >
                   <span className="sr-only">Facebook</span>
                   <svg
@@ -448,7 +455,7 @@ const Home = () => {
                 </a>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                 >
                   <span className="sr-only">Instagram</span>
                   <svg
@@ -466,7 +473,7 @@ const Home = () => {
                 </a>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                 >
                   <span className="sr-only">Twitter</span>
                   <svg
@@ -482,12 +489,12 @@ const Home = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-xl font-semibold mb-4">Links rápidos</h3>
               <ul className="space-y-2">
                 <li>
                   <button
                     onClick={() => scrollToSection(aboutRef)}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                   >
                     Sobre
                   </button>
@@ -495,7 +502,7 @@ const Home = () => {
                 <li>
                   <button
                     onClick={() => scrollToSection(servicesRef)}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                   >
                     Pilares
                   </button>
@@ -503,7 +510,7 @@ const Home = () => {
                 <li>
                   <button
                     onClick={() => scrollToSection(galleryRef)}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                   >
                     Galeria
                   </button>
@@ -511,31 +518,33 @@ const Home = () => {
                 <li>
                   <button
                     onClick={() => scrollToSection(contactRef)}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-backgroundColorLight hover:text-backgroundColorStrong transition-colors"
                   >
-                    Contact
+                    Contato
                   </button>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
-              <div className="grid grid-cols-2 gap-2 text-gray-400">
-                <span>Monday - Friday:</span>
-                <span>8:00 AM - 6:00 PM</span>
-                <span>Saturday:</span>
-                <span>9:00 AM - 2:00 PM</span>
-                <span>Sunday:</span>
-                <span>Closed</span>
+              <h3 className="text-xl font-semibold mb-4">
+                Horário de funcionamento
+              </h3>
+              <div className="grid grid-cols-2 gap-2 text-backgroundColorLight">
+                <span>Segunda - Sexta:</span>
+                <span>8:00 - 18:00</span>
+                <span>Sábados:</span>
+                <span>9:00 - 14:00</span>
+                <span>Domingos:</span>
+                <span>Fechados</span>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <div className="border-t border-backgroundColorStrong mt-12 pt-8 text-center text-backgroundColorLight">
             <p>
-              &copy; {new Date().getFullYear()} Bright Smile Dental. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} Jodang. Todos os direitos
+              reservados.
             </p>
           </div>
         </div>
