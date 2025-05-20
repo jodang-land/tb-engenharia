@@ -11,6 +11,12 @@ import {
   CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
 
+import casa_1 from "@/assets/casa_1.jpg";
+import casa_2 from "@/assets/casa_2.png";
+import refeitorio from "@/assets/refeitorio.jpg";
+import la_no_ary from "@/assets/la_no_ary.jpg";
+import tatiane_beilfuss from "@/assets/tatiane_beilfuss.png";
+
 const Home = () => {
   // Refs for scroll functionality
   const isMobile = window.innerWidth <= 768;
@@ -61,22 +67,22 @@ const Home = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "src/images/casa_1.jpg",
+      src: casa_1,
       alt: "Projeto de casa moderna",
     },
     {
       id: 2,
-      src: "src/images/casa_2.png",
+      src: casa_2,
       alt: "Projeto e execução de casa",
     },
     {
       id: 3,
-      src: "src/images/refeitorio.jpg",
+      src: refeitorio,
       alt: "Refeitório moderno",
     },
     {
       id: 4,
-      src: "src/images/la_no_ary.jpg",
+      src: la_no_ary,
       alt: "Projeto de mercado moderno",
     },
   ];
@@ -120,7 +126,9 @@ const Home = () => {
       {/* Hero Section */}
 
       <section className="relative h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="bg-[url(src/images/background_image.jpg)] bg-no-repeat bg-cover w-full h-full blur-sm absolute"></div>
+        <div
+          className={`bg-[url(@/assets/background_image.jpg)] bg-no-repeat bg-cover w-full h-full blur-sm absolute`}
+        ></div>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
           <motion.div
             className="lg:w-1/2 bg-backgroundColorMedium px-6 py-10 rounded-lg shadow-lg"
@@ -168,7 +176,7 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <img
-                src="src/images/tatiane_beilfuss.png"
+                src={tatiane_beilfuss}
                 alt="Tatiane beilfuss"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
